@@ -27,9 +27,9 @@
                             <%= short_url %>
                         </a>
                         <button class="copy-button" id="copyButton">Copy</button>
-                    <div id="tooltip" class="tooltip">
-                        URL Copied!
-                    </div>
+                        <div id="tooltip" class="tooltip">
+                            URL Copied!
+                        </div>
                         <% } %>
                 </div>
 
@@ -51,7 +51,7 @@
 
             document.body.removeChild(tempTextArea);
 
-           var tooltip = document.getElementById("tooltip");
+            var tooltip = document.getElementById("tooltip");
             tooltip.style.opacity = "1";
 
             setTimeout(function () {
