@@ -1,9 +1,6 @@
 Description
 URL Shortener is a simple web application that allows you to shorten long URLs, making them easier to share and manage.
 
-### Deployed Link
-
-[Live Link](https://url-shortener-1kt8.onrender.com:3000/)
 
 Table of Contents
 
