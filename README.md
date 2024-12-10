@@ -1,6 +1,6 @@
-# URL Shortener
+# QUICKURL(url_Shortener)
 
-**URL Shortener** is a simple web application that allows you to shorten long URLs, making them easier to share and manage.
+**QUICKURL** is a simple web application that allows you to shorten long URLs, making them easier to share and manage.
 
 ### [Deployed Link]
 
