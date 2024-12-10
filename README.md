@@ -46,7 +46,6 @@ Copy the generated short URL and share it.
 ### Dependencies
 
 The project uses the following dependencies:
-
 Node.js
 Express
 EJS
