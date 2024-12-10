@@ -3,7 +3,8 @@
 **URL Shortener** is a simple web application that allows you to shorten long URLs, making them easier to share and manage.
 
 ### [Deployed Link]
-[Deployed_Link](https://url-shortener-1-z5w2.onrender.com)
+
+[Deployed_Link_rupali_quickurl](https://url-shortener-1-z5w2.onrender.com)
 
 ---
 
@@ -67,4 +68,4 @@ Contributions are welcome! If you'd like to contribute to the project, please fo
 ## License
 
 This project is licensed under the MIT License.  
-For more details, visit [GitHub](https://github.com/rupali-12).
+For more details, visit [GitHub_RUPALI_SHARMA](https://github.com/rupali-12).
