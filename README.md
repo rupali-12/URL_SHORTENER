@@ -2,7 +2,8 @@
 
 **URL Shortener** is a simple web application that allows you to shorten long URLs, making them easier to share and manage.
 
-### [Deployed Link][Deployed_Link](https://url-shortener-1-z5w2.onrender.com)
+### [Deployed Link]
+[Deployed_Link](https://url-shortener-1-z5w2.onrender.com)
 
 ---
 
