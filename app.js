@@ -40,8 +40,8 @@ app.post("/", async (req, res, next) => {
     const urlExists = await ShortUrl.findOne({ url });
     if (urlExists) {
       res.render("index", {
-        // short_url: `http://localhost:${process.env.PORT}/${urlExists.shortId}`,
-        short_url: `https://url-shortener-1kt8.onrender.com:${process.env.PORT}/${urlExists.shortId}`,
+        short_url: `http://localhost:${process.env.PORT}/${urlExists.shortId}`,
+        // short_url: `https://url-shortener-1kt8.onrender.com:${process.env.PORT}/${urlExists.shortId}`,
       });
       return;
     }
@@ -50,8 +50,8 @@ app.post("/", async (req, res, next) => {
     const shortUrl = new ShortUrl({ url: url, shortId: shortId.generate() });
     const result = await shortUrl.save();
     res.render("index", {
-      // short_url: `http://localhost:${process.env.PORT}/${result.shortId}`,
-      short_url: `https://url-shortener-1kt8.onrender.com:${process.env.PORT}/${result.shortId}`,
+      short_url: `http://localhost:${process.env.PORT}/${result.shortId}`,
+      // short_url: `https://url-shortener-1kt8.onrender.com:${process.env.PORT}/${result.shortId}`,
     });
   } catch (err) {
     next(err);
