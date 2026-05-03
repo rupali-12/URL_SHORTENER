@@ -13,51 +13,42 @@
         <h1>QuickUrl</h1>
 
         <% if (locals.error) { %>
-            <p class="error">
-                <%= error%>
-            </p>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <form action="/" method="post">
+            <input type="url" name="url" placeholder="Enter URL..." required>
+            <input type="submit" value="Create URL">
+        </form>
+
+        <div class="short-url">
+            <% if (locals.short_url) { %>
+                <a href="<%= short_url %>" id="shortUrlLink">
+                    <%= short_url %>
+                </a>
+                <button class="copy-button" id="copyButton">Copy</button>
+                <div id="tooltip" class="tooltip">URL Copied!</div>
             <% } %>
-                <form action="/" method="post">
-                    <input type="url" name="url" id="url" placeholder="url here..">
-                    <input type="submit" value="create url">
-                </form>
-                <div class="short-url">
-                    <% if (locals.short_url) { %>
-                        <a href="<%= short_url %>" id="shortUrlLink">
-                            <%= short_url %>
-                        </a>
-                        <button class="copy-button" id="copyButton">Copy</button>
-                        <div id="tooltip" class="tooltip">
-                            URL Copied!
-                        </div>
-                        <% } %>
-                </div>
-
-
+        </div>
     </div>
+
     <script>
-        document.getElementById("copyButton").addEventListener("click", function () {
-            var shortUrlLink = document.getElementById("shortUrlLink");
-            var shortUrl = shortUrlLink.getAttribute("href");
+        const copyBtn = document.getElementById("copyButton");
 
-            //    Create a temporary text area 
-            var tempTextArea = document.createElement("textArea");
-            tempTextArea.value = shortUrl;
-            document.body.appendChild(tempTextArea);
+        if (copyBtn) {
+            copyBtn.addEventListener("click", function () {
+                const shortUrl = document.getElementById("shortUrlLink").href;
 
-            // select content and copy 
-            tempTextArea.select();
-            document.execCommand("copy");
+                navigator.clipboard.writeText(shortUrl);
 
-            document.body.removeChild(tempTextArea);
+                const tooltip = document.getElementById("tooltip");
+                tooltip.style.opacity = "1";
 
-            var tooltip = document.getElementById("tooltip");
-            tooltip.style.opacity = "1";
-
-            setTimeout(function () {
-                tooltip.style.opacity = "0";
-            }, 1500);
-        });
+                setTimeout(() => {
+                    tooltip.style.opacity = "0";
+                }, 1500);
+            });
+        }
     </script>
 
 </body>
