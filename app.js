@@ -41,7 +41,7 @@ app.post("/", async (req, res, next) => {
     if (urlExists) {
       res.render("index", {
         // short_url: `http://localhost:${process.env.PORT}/${urlExists.shortId}`,
-        short_url: `https://quickurl.com/${urlExists.shortId}`,
+        short_url: `https://url-shortener-1-z5w2.onrender.com/${urlExists.shortId}`,
       });
       return;
     }
