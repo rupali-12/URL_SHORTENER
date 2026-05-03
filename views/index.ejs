@@ -1,56 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickUrl</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuickURL</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <div class="container">
-        <h1>QuickUrl</h1>
+  <div class="page">
+    <div class="card">
 
-        <% if (locals.error) { %>
-            <p class="error"><%= error %></p>
-        <% } %>
-
-        <form action="/" method="post">
-            <input type="url" name="url" placeholder="Enter URL..." required>
-            <input type="submit" value="Create URL">
-        </form>
-
-        <div class="short-url">
-            <% if (locals.short_url) { %>
-                <a href="<%= short_url %>" id="shortUrlLink">
-                    <%= short_url %>
-                </a>
-                <button class="copy-button" id="copyButton">Copy</button>
-                <div id="tooltip" class="tooltip">URL Copied!</div>
-            <% } %>
+      <!-- Logo -->
+      <div class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 10a4 4 0 005.657 0l2-2a4 4 0 00-5.657-5.657l-1 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M12 10a4 4 0 00-5.657 0l-2 2a4 4 0 005.657 5.657l1-1" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
         </div>
+        <span class="logo-text">QuickURL</span>
+      </div>
+      <p class="tagline">Shorten long URLs into compact, shareable links</p>
+
+      <!-- Error -->
+      <% if (locals.error) { %>
+        <p class="error-msg"><%= error %></p>
+      <% } %>
+
+      <!-- Form -->
+      <form action="/" method="post" class="input-row">
+        <input type="url" name="url" placeholder="https://your-long-url.com/goes/here..." required />
+        <button type="submit" class="btn-shorten">Shorten</button>
+      </form>
+
+      <!-- Result -->
+      <% if (locals.short_url) { %>
+        <div class="result-box">
+          <a href="<%= short_url %>" id="shortUrlLink" class="result-url" target="_blank"><%= short_url %></a>
+          <button class="btn-copy" id="copyButton">Copy</button>
+        </div>
+      <% } %>
+
+      <div class="divider"></div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat"><div class="stat-num">12k+</div><div class="stat-label">Links created</div></div>
+        <div class="stat"><div class="stat-num">99.9%</div><div class="stat-label">Uptime</div></div>
+        <div class="stat"><div class="stat-num">Free</div><div class="stat-label">Always</div></div>
+      </div>
+
     </div>
+    <p class="footer">QuickURL &middot; Built by Rupali Sharma</p>
+  </div>
 
-    <script>
-        const copyBtn = document.getElementById("copyButton");
-
-        if (copyBtn) {
-            copyBtn.addEventListener("click", function () {
-                const shortUrl = document.getElementById("shortUrlLink").href;
-
-                navigator.clipboard.writeText(shortUrl);
-
-                const tooltip = document.getElementById("tooltip");
-                tooltip.style.opacity = "1";
-
-                setTimeout(() => {
-                    tooltip.style.opacity = "0";
-                }, 1500);
-            });
-        }
-    </script>
-
+  <script>
+    const copyBtn = document.getElementById("copyButton");
+    if (copyBtn) {
+      copyBtn.addEventListener("click", function () {
+        const url = document.getElementById("shortUrlLink").href;
+        navigator.clipboard.writeText(url);
+        copyBtn.textContent = "Copied!";
+        copyBtn.classList.add("copied");
+        setTimeout(() => {
+          copyBtn.textContent = "Copy";
+          copyBtn.classList.remove("copied");
+        }, 1800);
+      });
+    }
+  </script>
 </body>
-
 </html>
